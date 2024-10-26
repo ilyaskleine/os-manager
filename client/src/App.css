@@ -1,0 +1,51 @@
+.mainContent {
+  margin-left: 0px;
+  padding: 20px 20px;
+}
+
+@media only screen and (min-width: 700px) {
+  .mainContent {
+    margin-left: 230px;
+    padding: 20px 40px;
+  }
+}
+
+.page-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  height: 120vh;
+  background-color: rgba(1, 0, 0, 0.5);
+  z-index: 1;
+  display: block;
+}
+
+.icon-headline {
+  font-size: 1.7rem !important;
+  margin-right: 0.8rem;
+  position: relative;
+  top: 1px;
+}
+
+.page-header {
+  max-width: 800px;
+  color: var(--sidebar-background, black);
+}
+
+h1 {
+  margin-bottom: 0.3rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--sidebar-background);
+  margin-top: 10px;
+  opacity: 0.1;
+}

@@ -1,0 +1,9 @@
+.zitate-container {
+  padding: 15px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-between; /* Spreads items evenly */
+  align-items: flex-start; /* Aligns items to the top */
+}
