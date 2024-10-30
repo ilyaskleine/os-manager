@@ -1,20 +1,25 @@
+import { useEffect, useState } from "react";
 import Zitat from "./Zitat";
 import "./Zitate.css";
+import axios from "axios";
 
 export default function Zitate() {
-  let zitate = [
-    "The only way to do great work is to love what you do.",
-    "In three words I can sum up everything I've learned about life: it goes on.",
-    "The future belongs to those who believe in the beauty of their dreams.",
-    "It does not matter how slowly you go as long as you do not stop.",
-    "The only person you are destined to become is the person you decide to be.",
-    "The only limit to our realization of tomorrow will be our doubts of today.",
-    "The best way to find yourself is to lose yourself in the service of others.",
-    "The only thing we have to fear is fear itself.",
-    "In the end, it's not the years in your life that count. It's the life in your years.",
-    "Believe you can and you're halfway there.",
-    "The only thing we have to fear is fear itself.",
-  ];
+  const [quotes, setQuotes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://192.168.0.36:4000/api/quotes")
+      .then((response) => {
+        if (response.data.success) {
+          setQuotes(response.data.results);
+        } else {
+          console.error(response.data.error)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <>
@@ -32,8 +37,8 @@ export default function Zitate() {
         <hr></hr>
       </div>
       <div className="zitate-container">
-        {zitate.map((zitat, index) => (
-          <Zitat zitat={zitat} />
+        {quotes.map((quote, index) => (
+          <Zitat key={quote.id} zitat={quote.content} />
         ))}
       </div>
     </>
